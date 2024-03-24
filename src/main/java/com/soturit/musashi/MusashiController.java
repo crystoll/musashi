@@ -3,11 +3,9 @@ package com.soturit.musashi;
 import org.springframework.ai.chat.ChatClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("robobrain")
 public class MusashiController {
 
 	public static final String PROMPT = """
@@ -21,7 +19,7 @@ public class MusashiController {
 		this.aiClient = aiClient;
 	}
 
-	@GetMapping("/musashi")
+	@GetMapping("/robobrain/musashi")
 	public ResponseEntity<String> generateAdvice() {
 		return ResponseEntity.ok(aiClient.call(PROMPT));
 	}
